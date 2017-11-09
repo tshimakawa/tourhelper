@@ -1,0 +1,54 @@
+div.itembox{
+  display: table;
+  text-align:center;
+  table-layout: fixed;
+  margin: 0 auto;
+}
+div.buttonbox{
+  display: table;
+  text-align:center;
+  table-layout: fixed;
+  margin: 0 auto;
+}
+button.button1{
+  width:160px;
+  font-weight:bold;
+  color: white;
+  background-color: #6699FF;
+  display:inline-block;
+  text-align:center;
+  padding:4px 0 4px;
+  margin: 0px 20px;
+  /*ボタンの角を丸める*/
+  -moz-border-radius: 50px;    /* Firefox */
+  -webkit-border-radius: 50px; /* Safari,Chrome */
+  border-radius: 50px;         /* CSS3 */
+}
+button.button2{
+  width:160px;
+  font-weight:bold;
+  color: white;
+  background-color: #FF9900;
+  display:inline-block;
+  text-align:center;
+  padding:4px 0 4px;
+  margin: 0px 20px;
+  /*ボタンの角を丸める*/
+  -moz-border-radius: 50px;    /* Firefox */
+  -webkit-border-radius: 50px; /* Safari,Chrome */
+  border-radius: 50px;         /* CSS3 */
+}
+button.button3{
+  width:160px;
+  font-weight:bold;
+  color: white;
+  background-color: #00CC00;
+  display:inline-block;
+  text-align:center;
+  padding:4px 0 4px;
+  margin: 0px 20px;
+  /*ボタンの角を丸める*/
+  -moz-border-radius: 50px;    /* Firefox */
+  -webkit-border-radius: 50px; /* Safari,Chrome */
+  border-radius: 50px;         /* CSS3 */
+}

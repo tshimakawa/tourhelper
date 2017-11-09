@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ツアヘル</title>
+<script>
+	// Geolocation APIに対応している
+	if (navigator.geolocation) {
+		alert("この端末では位置情報が取得できます");
+	// Geolocation APIに対応していない
+	} else {
+		alert("この端末では位置情報が取得できません");
+	}
+
+	// 現在地取得処理
+	function getPosition() {
+		// 現在地を取得
+		navigator.geolocation.getCurrentPosition(
+			// 取得成功した場合
+			function(position) {
+					var latitude = position.coords.latitude;
+					document.getElementById('latitude').value = latitude;
+					var longitude = position.coords.longitude;
+					document.getElementById('longitude').value = longitude;
+					document.jsform.submit();
+			},
+			// 取得失敗した場合
+			function(error) {
+				switch(error.code) {
+					case 1: //PERMISSION_DENIED
+						alert("位置情報の利用が許可されていません");
+						break;
+					case 2: //POSITION_UNAVAILABLE
+						alert("現在位置が取得できませんでした");
+						break;
+					case 3: //TIMEOUT
+						alert("タイムアウトになりました");
+						break;
+					default:
+						alert("その他のエラー(エラーコード:"+error.code+")");
+						break;
+				}
+			}
+		);
+	}
+</script>
+</head>
+<link rel="stylesheet" href="homescreen.css" type="text/css">
+<body>
+<?php
+	session_start(); #セッション開始
+	if($_SESSION['flag']!=1){
+		$_SESSION['flag'] = 0;
+	}
+?>
+</br></br></br>
+
+<div class="itembox">
+
+<form action="google-api.php" method="post" name="jsform">
+<p style="font-family:'arial black';font-size:150%;color:red">お出かけルート検索</p>
+
+  今日はどこに行きたいですか？<br />
+　<select name="sightseeing" required>
+　<option value="">1つ選択してください</option>
+ <option value="観光地">観光地</option>
+ <option value="夜景">夜景</option>
+ <option value="美術館">美術館</option>
+ <option value="遊園地">遊園地</option>
+ <option value="動物園<">動物園</option>
+ <option value="水族館">水族館</option>
+ <option value="神社">神社</option>
+ <option value="寺">寺</option>
+ </select>
+  <br />
+
+  いつ出かける？<br />
+  <input type="time" name="start_time" id="start_time" size="30" value="" /><br />
+  いつ帰る？<br />
+  <input type="time" name="end_time" id="end_time" size="30" value="" /><br />
+  <br />
+  <!-- <input type="submit" value="ルート検索スタート！！" /> -->
+	<button type="button" onclick="getPosition()">ルート検索スタート!!</button><br />
+	<input type="hidden" name="latitude" id="latitude" value="">
+	<input type="hidden" name="longitude" id="longitude" value="">
+  <!-- <img src="odekake.jpg" alt="写真" align="bottom"> -->
+	</form>
+</div>
+
+<!-- <button type="button" onclick="getPosition()">送信</button>
+<form action="test.php" method="post" name="jsform">
+<input type="hidden" name="latitude" id="latitude" value="">
+<input type="hidden" name="longitude" id="longitude" value="">
+</form> -->
+
+<br><br>
+
+
+</body>
+</html>

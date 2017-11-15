@@ -6,7 +6,7 @@ exports.places_api = async function(){
   console.log("accessed google_api.js");
   const result = await asyncFunction();
   console.log('!!!!!!!!!!!!!!');
-  return result;
+  return 1000;
   //探索範囲をドライブ時間から計算
   // const starttime = parameters.starttime;
   // const endtime = parameters.endtime;
@@ -18,6 +18,7 @@ async function asyncFunction() {
       console.log('+++++++++++++++++++++++++++++++++++++++++++++++++');
       async.waterfall([
         function(callback) {
+          console.log("$$$$$$$$");
       // 同期通信でGETリクエスト
       request.get({
         url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?",
@@ -32,6 +33,7 @@ async function asyncFunction() {
         },
         json:true
       }, function (error, response, body) {
+        console.log('##########################');
         const result = body.results;
         const spot_list = [];
         for (var i=0;i<result.length;i++){

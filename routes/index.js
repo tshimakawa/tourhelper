@@ -18,8 +18,8 @@ router.get('/', function(req, res, next) {
   //   res.render('index', { title: 'Express' });
   // });
   async function test(){
-    const spot_list = await allmodule.google_api.places_api();
-    console.log(spot_list);
+    const spot_list = allmodule.google_api.places_api();
+    await console.log(spot_list);
   }
 });
 

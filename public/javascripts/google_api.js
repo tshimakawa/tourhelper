@@ -31,8 +31,8 @@ exports.places_api=function(){
       const result = body.results;
       const spot_list = [];
       const spot = {};
-      console.log(result.count);
-      for (const i = 0;i < result.count; i++){
+      console.log(result.length);
+      for (const i = 0;i < result.length; i++){
         spot.latitude = result[i].geometry.location.lat;
         spot.longitude = result[i].geometry.location.lng;
         spot.name = result[i].name;

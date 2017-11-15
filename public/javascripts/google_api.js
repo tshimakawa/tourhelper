@@ -48,6 +48,6 @@ exports.places_api=function(){
     }
     console.log('all done.');
     //console.log(result);
-    console.log(result);
+    console.log(result[2]);
   });
 }

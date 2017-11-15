@@ -77,7 +77,7 @@ exports.places_api = function(){
       //     spot_list[i] = spot;
       //   }
       //   callback(null,spot_list);
-      asyncFunction().then(console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%"));
+      asyncFunction().then(onFulfilled, onRejected);
     }],function(err, result) {
       if (err) {
         throw err;
@@ -88,6 +88,15 @@ exports.places_api = function(){
     });
   });
 
+}
+
+// 成功時呼ばれる関数
+function onFulfilled(data) {
+  console.log(data);
+}
+
+function onRejected(err) {
+  console.log(err);
 }
 
 function asyncFunction() {

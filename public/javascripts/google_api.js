@@ -86,8 +86,9 @@ exports.places_api = function(){
       console.log(result);
       resolve(result);
     });
+    console.log('+++++++++++++++++++++++++++++++++++++++++++++++++');
   });
-  console.log('+++++++++++++++++++++++++++++++++++++++++++++++++');
+
 }
 
 async function asyncFunction() {

@@ -30,16 +30,15 @@ exports.places_api=function(){
     }, function (error, response, body) {
       const result = body.results;
       const spot_list = [];
-      const spot = {};
       console.log(result.length);
       for (var i=0;i<result.length;i++){
+        const spot = {};
         spot.latitude = result[i].geometry.location.lat;
         spot.longitude = result[i].geometry.location.lng;
         spot.name = result[i].name;
         spot.icon = result[i].icon;
         spot_list[i] = spot;
         console.log(spot_list);
-        console.log("------------------------------");
       }
       callback(null,spot_list);
     });

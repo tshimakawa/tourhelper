@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
   //   res.render('index', { title: 'Express' });
   // });
   console.log("accessed index.js");
-  allmodule.google_api.places_api().then(test());
+  allmodule.google_api.places_api().then(test,test2;
   res.render('index', { title: 'Express' });
 });
 
@@ -26,4 +26,7 @@ module.exports = router;
 
 function test(){
   console.log("accessed test");
+}
+function test2(){
+  console.log("accessed test2")
 }

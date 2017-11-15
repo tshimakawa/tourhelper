@@ -2,23 +2,24 @@ const async = require('async');
 const request = require("request");
 var aaaaaa;
 
-exports.places_api = async function(){
-
+exports.places_api = function(){
   console.log("accessed google_api.js");
-
+  return new Promise(function (resolve, reject) {
+    asyncFunction().then(function (value) {
+      console.log('all done.');
+    }).catch(function (error) {
+      // 非同期処理失敗。呼ばれない
+      console.log(error);
+    });
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+    return aaaaaa;
+    resolve('Async Hello world');
+  });
   //探索範囲をドライブ時間から計算
   // const starttime = parameters.starttime;
   // const endtime = parameters.endtime;
   // const latitude = parameters.latitude;
   // const longitude = parameters.longitude;
-
-  asyncFunction().then(function (value) {
-    console.log('all done.');
-    return aaaaaa;
-  }).catch(function (error) {
-    // 非同期処理失敗。呼ばれない
-    console.log(error);
-  });
 }
 
 function asyncFunction() {

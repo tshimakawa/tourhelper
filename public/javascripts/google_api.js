@@ -18,10 +18,10 @@ exports.places_api=function(){
     request.get({
       url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?",
       qs:{
-        location:"135,35",
-        radius:"50000",
-        keyword:"水族館",
-        key:"AIzaSyDnjy1JCD2XQNej0kWaGnXN_VNrhxvmogs"
+        location:'135,35',
+        radius:'50000',
+        keyword:'水族館',
+        key:'AIzaSyDnjy1JCD2XQNej0kWaGnXN_VNrhxvmogs'
       },
       json:true
     }, function (error, response, body) {

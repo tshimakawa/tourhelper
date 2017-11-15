@@ -18,14 +18,12 @@ router.get('/', function(req, res, next) {
   //   res.render('index', { title: 'Express' });
   // });
   console.log("accessed index.js");
-  test();
+  allmodule.google_api.places_api().then(test());
   res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
 
-async function test(){
+function test(){
   console.log("accessed test");
-  const spot_list = await allmodule.google_api.places_api();
-  console.log(spot_list);
 }

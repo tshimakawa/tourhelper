@@ -62,6 +62,7 @@ function test(){
 function asyncFunction() {
     // Promiseオブジェクトを返却する.処理成功時にはresolveが呼ばれる
     return new Promise(function (resolve, reject) {
+      console.log('+++++++++++++++++++++++++++++++++++++++++++++++++');
       async.waterfall([
         function(callback) {
       // 同期通信でGETリクエスト

@@ -26,8 +26,10 @@ module.exports = router;
 
 async function test(){
   console.log("accessed test");
-  console.log(await allmodule.google_api.places_api());
-  // console.log("api終了");
-  // console.log(spot_list);
-  // console.log("test終了");
+  const spot_list = await allmodule.google_api.places_api();
+  setTimeout(() => {
+    console.log("api終了");
+    console.log(spot_list);
+    console.log("test終了");
+}, 4000);
 }

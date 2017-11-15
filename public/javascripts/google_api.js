@@ -38,7 +38,8 @@ exports.places_api=function(){
         spot.name = result[i].name;
         spot.icon = result[i].icon;
         spot_list[i] = spot;
-        console.log(spot);
+        console.log(spot_list);
+        console.log("------------------------------");
       }
       callback(null,spot_list);
     });

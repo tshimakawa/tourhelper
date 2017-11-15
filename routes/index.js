@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
   //   res.render('index', { title: 'Express' });
   // });
   console.log("accessed index.js");
-  allmodule.google_api.places_api().then(test,test2;
+  allmodule.google_api.places_api().then(test,test2);
   res.render('index', { title: 'Express' });
 });
 

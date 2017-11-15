@@ -17,10 +17,16 @@ router.get('/', function(req, res, next) {
   //   console.log(result);
   //   res.render('index', { title: 'Express' });
   // });
-  async function test(){
-    const spot_list = allmodule.google_api.places_api();
-    await console.log(spot_list);
-  }
+  console.log("accessed index.js");
+  test();
 });
 
 module.exports = router;
+
+async function test(){
+  console.log("accessed test");
+  const spot_list = allmodule.google_api.places_api();
+  console.log("api終了");
+  await console.log(spot_list);
+  console.log("test終了");
+}

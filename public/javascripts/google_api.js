@@ -74,7 +74,10 @@ exports.places_api = function(){
       //     spot_list[i] = spot;
       //   }
       //   callback(null,spot_list);
-    asyncFunction().then(onFulfilled,onRejected);
+    asyncFunction().then(function(){
+      console.log("てすとです");
+      resolve(result);
+    },onRejected);
     console.log('----------------------------------------------------');
   });
 

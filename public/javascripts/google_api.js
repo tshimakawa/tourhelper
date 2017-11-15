@@ -42,10 +42,10 @@ exports.places_api = function(){
     if (err) {
       throw err;
     }
-    console.log(result);
-    console.log('all done.');
-    return result;  
+    console.log('----------------------------------------------------');
+    return result;
   });
+  console.log('all done.');
   console.log(result);
   return result;
 }

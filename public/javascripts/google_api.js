@@ -21,10 +21,10 @@ exports.places_api=function(){
         'Content-Type':'text/plain;charset=utf-8'
       },
       qs:{
-        location:'135,35',
-        radius:'50000',
-        keyword:'水族館',
-        key:'AIzaSyDnjy1JCD2XQNej0kWaGnXN_VNrhxvmogs'
+        key:'AIzaSyDnjy1JCD2XQNej0kWaGnXN_VNrhxvmogs',
+        location:'35,135',
+        radius:'50000'
+        //keyword:'水族館',
       },
       json:true
     }, function (error, response, body) {

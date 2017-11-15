@@ -19,7 +19,7 @@ exports.places_api=function(){
       url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?",
       headers:{
         'Content-Type':'text/plain;charset=utf-8'
-      }
+      },
       qs:{
         location:'135,35',
         radius:'50000',

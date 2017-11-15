@@ -14,7 +14,6 @@ exports.places_api = async function(){
 
   asyncFunction().then(function (value) {
     console.log('all done.');
-    console.log(aaaaaa);
     return aaaaaa;
   }).catch(function (error) {
     // 非同期処理失敗。呼ばれない

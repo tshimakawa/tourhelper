@@ -77,7 +77,7 @@ exports.places_api = function(){
       //     spot_list[i] = spot;
       //   }
       //   callback(null,spot_list);
-      asyncFunction().then(callback(null,"aaaaaaaaaaaa");)
+      asyncFunction().then(callback(null,"aaaaaaaaaaaa"));
       });
     }
   ],function(err, result) {

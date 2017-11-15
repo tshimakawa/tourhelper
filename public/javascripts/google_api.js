@@ -4,10 +4,9 @@ var aaaaaa;
 
 exports.places_api = async function(){
   console.log("accessed google_api.js");
-
-  await asyncFunction();
-  console.log(aaaaaa);
-  return aaaaaa;
+  const result = await asyncFunction();
+  console.log('!!!!!!!!!!!!!!');
+  return result;
   //探索範囲をドライブ時間から計算
   // const starttime = parameters.starttime;
   // const endtime = parameters.endtime;
@@ -50,5 +49,6 @@ async function asyncFunction() {
       }
       console.log('----------------------------------------------------');
       aaaaaa = result;
+      return result;
     });
 }

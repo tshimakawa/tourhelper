@@ -49,9 +49,6 @@ exports.places_api = function(){
 
   return new Promise(function(resolve,reject){
     console.log("accessed google_api.js");
-      async.waterfall([
-        function(callback) {
-          console.log("$$$$$$$$");
       // 同期通信でGETリクエスト
       // request.get({
       //   url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?",
@@ -77,14 +74,8 @@ exports.places_api = function(){
       //     spot_list[i] = spot;
       //   }
       //   callback(null,spot_list);
-      asyncFunction().then(callback(null,"aaaaaaaaaaaa"), onRejected);
-    }],function(err, result) {
-      if (err) {
-        throw err;
-      }
+      asyncFunction().then(onFulfilled,onRejected);
       console.log('----------------------------------------------------');
-      console.log(result);
-      resolve(result);
     });
   });
 
@@ -93,6 +84,7 @@ exports.places_api = function(){
 // 成功時呼ばれる関数
 function onFulfilled(data) {
   console.log(data);
+  resolve(result);
 }
 
 function onRejected(err) {

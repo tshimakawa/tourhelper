@@ -1,7 +1,9 @@
 const async = require('async');
 const request = require("request");
 
-exports.places_api = async function(){
+exports.places_api = function(){
+
+  console.log("accessed google_api.js");
 
   //探索範囲をドライブ時間から計算
   // const starttime = parameters.starttime;
@@ -43,7 +45,7 @@ exports.places_api = async function(){
     if (err) {
       throw err;
     }
-    await console.log(result);
+    console.log(result);
     return result;
     console.log(result);
     console.log('all done.');

@@ -77,7 +77,7 @@ exports.places_api = function(){
       //     spot_list[i] = spot;
       //   }
       //   callback(null,spot_list);
-      asyncFunction().then(callback(null,"aaaaaaaaaaaa"));
+      asyncFunction().then(console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%"););
     }],function(err, result) {
       if (err) {
         throw err;
@@ -105,6 +105,10 @@ function asyncFunction() {
       },
       json:true
     }, function (error, response, body) {
+      if (err) {
+        reject(err); // errがあればrejectを呼び出す
+        return;
+      }
       console.log('##########################');
       const result = body.results;
       const spot_list = [];

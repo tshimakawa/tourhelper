@@ -37,8 +37,8 @@ exports.places_api=function(){
         spot.longitude = result[i].geometry.location.lng;
         spot.name = result[i].name;
         spot.icon = result[i].icon;
-        console.log(spot);
         spot_list.push(spot);
+        console.log(spot);
       }
       callback(null,spot_list);
     });

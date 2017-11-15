@@ -87,7 +87,7 @@ exports.places_api = function(){
       resolve(result);
     });
   });
-
+  console.log('+++++++++++++++++++++++++++++++++++++++++++++++++');
 }
 
 async function asyncFunction() {

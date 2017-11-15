@@ -8,8 +8,8 @@ const allmodule = require('../public/javascripts');
 router.get('/', function(req, res, next) {
   async.waterfall([
   function(callback) {
-    const spot_list = allmodule.google_api.places_api();
-    callback(null,spot_list);
+    const spot_list = async () => allmodule.google_api.places_api();
+    await callback(null,spot_list);
   }],function(err, result) {
     if (err) {
       throw err;

@@ -1,0 +1,8 @@
+ルート検索リクエスト Android->サーバ
+	body{
+		starttime : String,
+		endtime : String,
+		latitude : double,
+		longitude : double,
+		keyword : String
+	}

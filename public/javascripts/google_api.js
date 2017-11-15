@@ -1,7 +1,7 @@
 const async = require('async');
 const request = require("request");
 
-exports.places_api=function(){
+exports.places_api = async function(){
 
   //探索範囲をドライブ時間から計算
   // const starttime = parameters.starttime;
@@ -30,7 +30,6 @@ exports.places_api=function(){
     }, function (error, response, body) {
       const result = body.results;
       const spot_list = [];
-      console.log(result.length);
       for (var i=0;i<result.length;i++){
         const spot = {};
         spot.latitude = result[i].geometry.location.lat;
@@ -45,7 +44,7 @@ exports.places_api=function(){
       throw err;
     }
     console.log(result);
-    return result;
+    return await result;
     console.log(result);
     console.log('all done.');
   });

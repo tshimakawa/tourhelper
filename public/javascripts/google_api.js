@@ -1,7 +1,7 @@
 const async = require('async');
 const request = require("request");
 
-function Places_api(){
+exports.places_api=function(){
 
   //探索範囲をドライブ時間から計算
   // const starttime = parameters.starttime;

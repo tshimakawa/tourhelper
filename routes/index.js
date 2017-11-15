@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const google_api = require('./public/javascript/google_api.js');
+const google_api = require('./public/javascripts/google_api.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   console.log("accessed index.js");
-  google_api.Places_api();
+  google_api.places_api();
   res.render('index', { title: 'Express' });
 });
 

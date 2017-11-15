@@ -11,7 +11,7 @@ exports.places_api = function(){
   // const latitude = parameters.latitude;
   // const longitude = parameters.longitude;
 
-  async.waterfall([
+  const result = async.waterfall([
   function(callback) {
     // 同期通信でGETリクエスト
     request.get({
@@ -44,6 +44,8 @@ exports.places_api = function(){
     }
     console.log(result);
     console.log('all done.');
-    return result;
+    return result;  
   });
+  console.log(result);
+  return result;
 }

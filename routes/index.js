@@ -6,9 +6,6 @@ const allmodule = require('../public/javascripts');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log("accessed index.js");
-  console.log(spot_list);
-
   async.waterfall([
   function(callback) {
     const spot_list = allmodule.google_api.places_api();

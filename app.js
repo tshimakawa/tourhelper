@@ -10,7 +10,7 @@ const fs = require('fs');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
-const search_dest = require('./routes/search_dest');
+//const search_dest = require('./routes/search_dest');
 
 const app = express();
 
@@ -27,8 +27,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/search_dest',search_dest);
 app.use('/users', users);
+//app.use('/search_dest',search_dest);
 
 //HTTPS通信で使用するためのSSLキーを設定
 const ssloptions = {

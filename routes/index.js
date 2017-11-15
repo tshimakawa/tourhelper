@@ -18,17 +18,15 @@ router.get('/', function(req, res, next) {
   //   res.render('index', { title: 'Express' });
   // });
   console.log("accessed index.js");
-  allmodule.google_api.places_api().then(function(result){
-    console.log(result);
-    res.render('index', { title: 'Express' });
-  },test2);
+  allmodule.google_api.places_api().then(onResolve,onReject);
 });
 
 module.exports = router;
 
-function test(){
+function onResolve(result){
   console.log("accessed test");
+  res.render('index', { title: 'Express' });
 }
-function test2(){
-  console.log("accessed test2")
+function onReject(){
+  console.log("accessed test2");
 }

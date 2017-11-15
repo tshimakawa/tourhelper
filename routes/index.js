@@ -24,12 +24,13 @@ router.get('/', function(req, res, next) {
 
 module.exports = router;
 
-async function test(){
+function test(){
   console.log("accessed test");
-  const spot_list = await allmodule.google_api.places_api();
+  // const spot_list = allmodule.google_api.places_api();
+  console.log(allmodule.google_api.places_api());
   setTimeout(() => {
     console.log("api終了");
-    console.log(spot_list);
+    // console.log(spot_list);
     console.log("test終了");
 }, 4000);
 }

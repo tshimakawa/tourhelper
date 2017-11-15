@@ -77,7 +77,7 @@ exports.places_api = function(){
       //     spot_list[i] = spot;
       //   }
       //   callback(null,spot_list);
-      asyncFunction().then(console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%"););
+      asyncFunction().then(console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%"));
     }],function(err, result) {
       if (err) {
         throw err;

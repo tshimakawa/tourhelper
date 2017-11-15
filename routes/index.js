@@ -7,11 +7,9 @@ const allmodule = require('../public/javascripts');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   async.waterfall([
-  function(callback) {
-    async(){
+  async function(callback) {
       const spot_list = allmodule.google_api.places_api();
       await callback(null,spot_list);
-    }
   }],function(err, result) {
     if (err) {
       throw err;

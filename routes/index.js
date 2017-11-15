@@ -6,7 +6,7 @@ const allmodule = require('../public/javascripts');
 router.get('/', function(req, res, next) {
   console.log("accessed index.js");
   const spot_list = allmodule.google_api.places_api();
-  consol.log(spot_list);
+  console.log(spot_list);
   res.render('index', { title: 'Express' });
 });
 

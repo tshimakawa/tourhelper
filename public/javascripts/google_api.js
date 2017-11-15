@@ -23,7 +23,7 @@ exports.places_api=function(){
       qs:{
         key:'AIzaSyDnjy1JCD2XQNej0kWaGnXN_VNrhxvmogs',
         location:'35,135',
-        radius:'50000'
+        radius:'50000',
         keyword:'水族館',
       },
       json:true

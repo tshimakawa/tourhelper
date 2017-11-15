@@ -29,7 +29,16 @@ exports.places_api=function(){
       json:true
     }, function (error, response, body) {
       const result = body.results;
-      callback(null,result);
+      const spot_list = [];
+      const spot = {};
+      for (const i = 0;i < result.count; i++){
+        spot.latitude = result[i].geometry.location.lat;
+        spot.longitude = result[i].geometry.location.lng;
+        spot.name = result[i].name;
+        spot.icon = result[i].icon;
+        spot_list.push(spot);
+      }
+      callback(null,spot_list);
     });
   }],function(err, result) {
     if (err) {

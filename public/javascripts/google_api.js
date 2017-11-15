@@ -105,8 +105,8 @@ function asyncFunction() {
       },
       json:true
     }, function (error, response, body) {
-      if (err) {
-        reject(err); // errがあればrejectを呼び出す
+      if (error) {
+        reject(error); // errがあればrejectを呼び出す
         return;
       }
       console.log('##########################');

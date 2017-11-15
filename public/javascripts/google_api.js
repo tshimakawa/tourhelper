@@ -2,19 +2,12 @@ const async = require('async');
 const request = require("request");
 var aaaaaa;
 
-exports.places_api = function(){
+exports.places_api = async function(){
   console.log("accessed google_api.js");
-  return new Promise(function (resolve, reject) {
-    asyncFunction().then(function (value) {
-      console.log('all done.');
-    }).catch(function (error) {
-      // 非同期処理失敗。呼ばれない
-      console.log(error);
-    });
-    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-    return aaaaaa;
-    resolve('Async Hello world');
-  });
+
+  await asyncFunction();
+  console.log(aaaaaa);
+  return aaaaaa;
   //探索範囲をドライブ時間から計算
   // const starttime = parameters.starttime;
   // const endtime = parameters.endtime;
@@ -22,9 +15,7 @@ exports.places_api = function(){
   // const longitude = parameters.longitude;
 }
 
-function asyncFunction() {
-    // Promiseオブジェクトを返却する.処理成功時にはresolveが呼ばれる
-    return new Promise(function (resolve, reject) {
+async function asyncFunction() {
       console.log('+++++++++++++++++++++++++++++++++++++++++++++++++');
       async.waterfall([
         function(callback) {
@@ -59,7 +50,5 @@ function asyncFunction() {
       }
       console.log('----------------------------------------------------');
       aaaaaa = result;
-      resolve('Async Hello world');
-    });
     });
 }

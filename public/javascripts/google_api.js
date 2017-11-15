@@ -28,7 +28,8 @@ exports.places_api=function(){
       },
       json:true
     }, function (error, response, body) {
-      callback(null,body);
+      const result = body.results;
+      callback(null,result);
     });
   }],function(err, result) {
     if (err) {

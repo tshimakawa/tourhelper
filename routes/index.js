@@ -5,7 +5,7 @@ const request = require("request");
 const allmodule = require('../public/javascripts');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', async function(req, res, next) {
   // async.waterfall([
   // async function(callback) {
   //     const spot_list = await allmodule.google_api.places_api();
@@ -17,10 +17,8 @@ router.get('/', function(req, res, next) {
   //   console.log(result);
   //   res.render('index', { title: 'Express' });
   // });
-  async function test(){
     const spot_list = await allmodule.google_api.places_api();
     console.log(spot_list);
-  }
 });
 
 module.exports = router;

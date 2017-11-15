@@ -20,7 +20,7 @@ async function asyncFunction() {
         function(callback) {
           console.log("$$$$$$$$");
       // 同期通信でGETリクエスト
-      request.get({
+      await request.get({
         url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?",
         headers:{
           'Content-Type':'text/plain;charset=utf-8'

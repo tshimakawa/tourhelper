@@ -55,7 +55,6 @@ exports.places_api = function(){
       },function(error){
         reject(error);
       });
-    console.log('----------------------------------------------------');
   });
 }
 
@@ -78,7 +77,6 @@ function getPlaces() {
         reject(error); // errがあればrejectを呼び出す
         return;
       }
-      console.log('##########################');
       const result = body.results;
       const spot_list = [];
       for (var i=0;i<result.length;i++){
@@ -88,7 +86,6 @@ function getPlaces() {
         spot.name = result[i].name;
         spot_list[i] = spot;
       }
-      console.log('+++++++++++++++++++++++++++++++++++++++++++++++++');
       resolve(spot_list);
     });
   });

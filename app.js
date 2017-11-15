@@ -10,6 +10,7 @@ const fs = require('fs');
 
 const index = require('./routes/index');
 const users = require('./routes/users');
+const search_dest = require('./routes/search_dest');
 
 const app = express();
 

@@ -75,7 +75,6 @@ exports.places_api = function(){
       //   }
       //   callback(null,spot_list);
     asyncFunction().then(function(result){
-      console.log(result);
       resolve(result);
     },onRejected);
     console.log('----------------------------------------------------');

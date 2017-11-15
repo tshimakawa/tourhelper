@@ -18,8 +18,10 @@ router.get('/', function(req, res, next) {
   //   res.render('index', { title: 'Express' });
   // });
   console.log("accessed index.js");
-  allmodule.google_api.places_api().then(test,test2);
-  res.render('index', { title: 'Express' });
+  allmodule.google_api.places_api().then(function(result){
+    console.log("result");
+    res.render('index', { title: 'Express' });
+  },test2);
 });
 
 module.exports = router;

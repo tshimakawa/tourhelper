@@ -36,7 +36,6 @@ exports.places_api=function(){
         spot.latitude = result[i].geometry.location.lat;
         spot.longitude = result[i].geometry.location.lng;
         spot.name = result[i].name;
-        spot.icon = result[i].icon;
         spot_list[i] = spot;
         console.log(spot_list);
       }
@@ -48,6 +47,6 @@ exports.places_api=function(){
     }
     console.log('all done.');
     //console.log(result);
-    console.log(result[2]);
+    console.log(result);
   });
 }

@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('search_dest',search_dest);
+app.use('/search_dest',search_dest);
 app.use('/users', users);
 
 //HTTPS通信で使用するためのSSLキーを設定

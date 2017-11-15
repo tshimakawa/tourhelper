@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const google_api = require('./public/javascripts/google_api.js');
+const google_api = require('../public/javascripts');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

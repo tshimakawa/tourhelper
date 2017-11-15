@@ -42,8 +42,8 @@ exports.places_api = function(){
     if (err) {
       throw err;
     }
-    return result;
     console.log(result);
     console.log('all done.');
+    return result;
   });
 }

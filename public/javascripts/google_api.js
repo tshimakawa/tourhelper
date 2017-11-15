@@ -43,8 +43,8 @@ exports.places_api = async function(){
     if (err) {
       throw err;
     }
-    console.log(result);
-    return await result;
+    await console.log(result);
+    return result;
     console.log(result);
     console.log('all done.');
   });

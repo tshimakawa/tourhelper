@@ -13,9 +13,6 @@ exports.places_api = function(){
 
   async.waterfall([
   function(callback) {
-    console.log('api叩く前');
-    // 受け取りようの引数
-    const responseDate = undefined;
     // 同期通信でGETリクエスト
     request.get({
       url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?",

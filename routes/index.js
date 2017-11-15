@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
   // });
   console.log("accessed index.js");
   allmodule.google_api.places_api().then(function(result){
-    console.log("result");
+    console.log(result);
     res.render('index', { title: 'Express' });
   },test2);
 });

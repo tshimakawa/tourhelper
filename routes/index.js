@@ -13,10 +13,10 @@ router.get('/', function(req, res, next) {
       allmodule.twitter_api.twitter_api().then(
         function(result){
           console.log(result);
+          res.render('index', { title: 'Express' });
         },function(error){
           console.log(error);
         });
-      res.render('index', { title: 'Express' });
     },function(error){
       console.log(error);
     });

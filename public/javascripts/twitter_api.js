@@ -33,8 +33,11 @@ function search(spot_name){
         return;
       }
       console.log("---------------------------");
-      console.log(tweets);
+      console.log(tweets.starus);
+      const tweets = tweets.status;
       console.log("---------------------------");
+      console.log(tweets.length);
+      console.log(tweets[tweets.length-1]);
       resolve("できました");
     });
   });

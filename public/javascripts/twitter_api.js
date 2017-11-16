@@ -9,10 +9,10 @@ const client = new twitter({
   access_token_secret: "1WSp9lhSwKSrJTRUTuLJPSenqNhCKLC2grf0nKgZg5H33",
 });
 
-exports.twitter_api = function(){
+exports.twitter_api = function(spot_list){
   return new Promise(function(resolve,reject){
     console.log("accessed twitter_api.js");
-    search("海遊館").then(
+    search(spot_list).then(
       function(result){
         resolve(result);
       },function(error){
@@ -22,56 +22,30 @@ exports.twitter_api = function(){
 }
 
 //キーワードで検索
-function search(spot_name){
+function search(spot_list){
   return new Promise(function(resolve,reject){
-    var options = {};
-    options.q = spot_name;
-    options.count = 100;
-    client.get('search/tweets', options, function(error, tweets, response){
-      if (error) {
-        reject(error); // errがあればrejectを呼び出す
-        return;
-      }
-      console.log("---------------------------");
-      console.log(tweets.statuses);
-      const tweet = tweets.statuses;
-      console.log("---------------------------");
-      console.log(tweet.length);
-      console.log(tweet[tweet.length-1].created_at);
-      resolve("できました");
-    });
-  });
-}
-
-function getRanking() {
-  return new Promise(function(resolve,reject){
-    request.get({
-      url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?",
-      headers:{
-        'Content-Type':'text/plain;charset=utf-8'
-      },
-      qs:{
-        key:'AIzaSyDnjy1JCD2XQNej0kWaGnXN_VNrhxvmogs',
-        location:'35,135',
-        radius:'50000',
-        keyword:'水族館',
-      },
-      json:true
-    }, function (error, response, body) {
-      if (error) {
-        reject(error); // errがあればrejectを呼び出す
-        return;
-      }
-      const result = body.results;
-      const spot_list = [];
-      for (var i=0;i<result.length;i++){
+    const spot_info = [];
+    for(let i=0;i<spot_list.length;i++){
+      var options = {};
+      options.q = spot_list[i].name;
+      options.count = 100;
+      client.get('search/tweets', options, function(error, tweets, response){
+        if (error) {
+          reject(error); // errがあればrejectを呼び出す
+          return;
+        }
+        const tweet = tweets.statuses;
         const spot = {};
-        spot.latitude = result[i].geometry.location.lat;
-        spot.longitude = result[i].geometry.location.lng;
-        spot.name = result[i].name;
-        spot_list[i] = spot;
-      }
-      resolve(spot_list);
-    });
+        spot.name = spot_list[i].name;
+        spot.latitude = spot_list[i].latitude;
+        spot.longitude = spot_list[i].longitude;
+        spot.count = tweet.length;
+        spot.lasttime = tweet[tweet.length-1].created_at;
+        spot_info.push(spot);
+        if(i==spot_list.length-1){
+          resolve(spot_info);
+        }
+      });
+    }
   });
 }

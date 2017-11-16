@@ -29,7 +29,7 @@ function search(spot_list){
     for(let i=0;i<1;i++){
       var options = {};
       console.log(spot_list[i].name);
-      options.q = "Suma Aqualife Park";
+      options.q = spot_list[3].name;
       options.count = 100;
       client.get('search/tweets', options, function(error, tweets, response){
         if (error) {

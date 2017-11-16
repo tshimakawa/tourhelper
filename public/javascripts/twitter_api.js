@@ -3,10 +3,10 @@ const request = require("request");
 const twitter = require('twitter');
 
 const client = new twitter({
-  consumer_key: "QYpiNgBXqjd4WKL6ONvbw4r2G",
-  consumer_secret: "WbyafMeqMfCsmiKQupR3VuVsFVSJMhMmtXJhg7NlYZONoZppNU",
-  access_token_key: "1345331436-c8KQA7IKfKoauei7Qw7wZA72DHbTbs9iHo5KXl0",
-  access_token_secret: "2gSy2Pt4yGMou20YKftlNzCPnEgoTjSm6CuH3m5zfkOF4",
+  consumer_key: "4iwpQDHb1ZY9TdGxF5uMpcRxk",
+  consumer_secret: "Zezzrkom2GiBVchn6usn0wWkmKryoWJzQAUMEOTZTeeiUlgm4Q",
+  access_token_key: "1345331436-yRJ3Tkmtqtl4ONROu7oxHNwEy5Yrw0qbRRZfTdT",
+  access_token_secret: "1WSp9lhSwKSrJTRUTuLJPSenqNhCKLC2grf0nKgZg5H33",
 });
 
 exports.twitter_api = function(){
@@ -33,7 +33,7 @@ function search(spot_name){
         return;
       }
       console.log("---------------------------");
-      console.log(tweets.starus);
+      console.log(tweets.status);
       const tweet = tweets.status;
       console.log("---------------------------");
       console.log(tweet.length);

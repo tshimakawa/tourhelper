@@ -26,7 +26,7 @@ exports.twitter_api = function(spot_list){
 function search(spot_list){
   return new Promise(function(resolve,reject){
     const spot_info = [];
-    for(let i=0;i<spot_list.length;i++){
+    for(let i=0;i<1;i++){
       var options = {};
       console.log(spot_list[i].name);
       options.q = spot_list[i].name;

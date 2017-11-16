@@ -2,7 +2,7 @@ const async = require('async');
 const request = require("request");
 const twitter = require('twitter');
 
-const client = new Twitter({
+const client = new twitter({
   consumer_key: "QYpiNgBXqjd4WKL6ONvbw4r2G",
   consumer_secret: "WbyafMeqMfCsmiKQupR3VuVsFVSJMhMmtXJhg7NlYZONoZppNU",
   access_token_key: "1345331436-c8KQA7IKfKoauei7Qw7wZA72DHbTbs9iHo5KXl0",

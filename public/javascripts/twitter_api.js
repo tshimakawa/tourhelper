@@ -32,10 +32,10 @@ function search(spot_name){
         reject(error); // errがあればrejectを呼び出す
         return;
       }
+      console.log("---------------------------");
       console.log(tweets);
       console.log("---------------------------");
-      console.log(response);
-      resolve(spot_list);
+      resolve("できました");
     });
   });
 }

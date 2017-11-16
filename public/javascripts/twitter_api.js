@@ -37,7 +37,7 @@ function search(spot_name){
       const tweet = tweets.statuses;
       console.log("---------------------------");
       console.log(tweet.length);
-      console.log(tweets[tweet.length-1]);
+      console.log(tweet[tweet.length-1]);
       resolve("できました");
     });
   });

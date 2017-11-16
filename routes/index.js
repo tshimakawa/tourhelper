@@ -8,11 +8,13 @@ const allmodule = require('../public/javascripts');
 router.get('/', function(req, res, next) {
   console.log("accessed index.js");
   allmodule.google_api.places_api().then(
-    function(result){
-      console.log(result);
-      allmodule.twitter_api.twitter_api().then(
-        function(result){
-          console.log(result);
+    function(places_api_result){
+      console.log("google_placecs_apiの結果です");
+      console.log(places_api_result);
+      allmodule.twitter_api.twitter_api(places_api_result).then(
+        function(twitter_api_result){
+          console.log("twitter_apiの結果です");
+          console.log(twitter_api_result);
           res.render('index', { title: 'Express' });
         },function(error){
           console.log(error);

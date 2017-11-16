@@ -34,6 +34,8 @@ function search(spot_list){
           reject(error); // errがあればrejectを呼び出す
           return;
         }
+        console.log(tweets);
+        console.log("----------------------------------------------------------");
         const tweet = tweets.statuses;
         const spot = {};
         spot.name = spot_list[i].name;

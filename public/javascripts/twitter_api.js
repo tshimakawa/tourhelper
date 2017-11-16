@@ -12,6 +12,7 @@ const client = new twitter({
 exports.twitter_api = function(spot_list){
   return new Promise(function(resolve,reject){
     console.log("accessed twitter_api.js");
+    console.log(spot_list[1]);
     search(spot_list).then(
       function(result){
         resolve(result);
@@ -27,6 +28,7 @@ function search(spot_list){
     const spot_info = [];
     for(let i=0;i<spot_list.length;i++){
       var options = {};
+      console.log(spot_list[i].name);
       options.q = spot_list[i].name;
       options.count = 100;
       client.get('search/tweets', options, function(error, tweets, response){

@@ -10,6 +10,12 @@ router.get('/', function(req, res, next) {
   allmodule.google_api.places_api().then(
     function(result){
       console.log(result);
+      allmodule.twitter_api.twitter_api().then(
+        function(result){
+          console.log(result);
+        },function(error){
+          console.log(error);
+        });
       res.render('index', { title: 'Express' });
     },function(error){
       console.log(error);

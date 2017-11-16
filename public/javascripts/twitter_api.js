@@ -34,10 +34,10 @@ function search(spot_name){
       }
       console.log("---------------------------");
       console.log(tweets.starus);
-      const tweets = tweets.status;
+      const tweet = tweets.status;
       console.log("---------------------------");
-      console.log(tweets.length);
-      console.log(tweets[tweets.length-1]);
+      console.log(tweet.length);
+      console.log(tweets[tweet.length-1]);
       resolve("できました");
     });
   });

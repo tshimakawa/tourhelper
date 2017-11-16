@@ -33,8 +33,8 @@ function search(spot_name){
         return;
       }
       console.log("---------------------------");
-      console.log(tweets);
-      const tweet = tweets.status;
+      console.log(tweets.statuses);
+      const tweet = tweets.statuses;
       console.log("---------------------------");
       console.log(tweet.length);
       console.log(tweets[tweet.length-1]);

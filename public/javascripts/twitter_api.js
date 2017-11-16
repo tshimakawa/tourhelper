@@ -12,6 +12,7 @@ const client = new twitter({
 exports.twitter_api = function(spot_list){
   return new Promise(function(resolve,reject){
     console.log("accessed twitter_api.js");
+    console.log(spot_list[1]);
     search(spot_list).then(
       function(result){
         resolve(result);

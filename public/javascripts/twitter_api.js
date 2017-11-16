@@ -28,15 +28,15 @@ function search(spot_list){
     const spot_info = [];
     for(let i=0;i<1;i++){
       var options = {};
-      console.log(spot_list[i].name);
-      options.q = spot_list[1].name;
+      console.log(spot_list[2].name);
+      options.q = spot_list[2].name;
       options.count = 100;
       client.get('search/tweets', options, function(error, tweets, response){
         if (error) {
           reject(error); // errがあればrejectを呼び出す
           return;
         }
-        console.log(tweets);
+        //console.log(tweets);
         console.log("----------------------------------------------------------");
         const tweet = tweets.statuses;
         const spot = {};
@@ -44,7 +44,7 @@ function search(spot_list){
         spot.latitude = spot_list[i].latitude;
         spot.longitude = spot_list[i].longitude;
         spot.count = tweet.length;
-        console.log(tweet);
+        //console.log(tweet);
         console.log("----------------------------------------------------------");
         console.log(tweet[tweet.length-1]);
         spot.lasttime = tweet[tweet.length-1].created_at;

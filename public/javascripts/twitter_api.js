@@ -12,7 +12,6 @@ const client = new twitter({
 exports.twitter_api = function(spot_list){
   return new Promise(function(resolve,reject){
     console.log("accessed twitter_api.js");
-    console.log(spot_list[1]);
     search(spot_list).then(
       function(result){
         resolve(result);
@@ -41,6 +40,9 @@ function search(spot_list){
         spot.latitude = spot_list[i].latitude;
         spot.longitude = spot_list[i].longitude;
         spot.count = tweet.length;
+        console.log(tweet);
+        console.log("----------------------------------------------------------");
+        console.log(tweet[tweet.length-1]);
         spot.lasttime = tweet[tweet.length-1].created_at;
         spot_info.push(spot);
         if(i==spot_list.length-1){

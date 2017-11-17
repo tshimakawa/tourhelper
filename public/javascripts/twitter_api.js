@@ -24,6 +24,7 @@ exports.twitter_api = function(spot_list){
           console.log("spot_infoに追加したよ");
         }
         if(count == spot_list.length){
+          console.log("twitter_apiのresolveに入りました");
           resolve(spot_info);
         }
       },function(error){
@@ -37,6 +38,7 @@ exports.twitter_api = function(spot_list){
 //キーワードで検索
 function search(spot_list){
   return new Promise(function(resolve,reject){
+    console.log(spot_list);
     // for(const i=0;i<spot_list.length;i++){
     var options = {};
     options.q = spot_list.name;

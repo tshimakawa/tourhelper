@@ -32,6 +32,7 @@ function search(spot_list){
       options.count = 100;
       client.get('search/tweets', options, function(error, tweets, response){
         if (error) {
+          console.log("search中にerrorが発生しました");
           reject(error); // errがあればrejectを呼び出す
           return;
         }

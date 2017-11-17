@@ -49,7 +49,7 @@ function search(spot_list){
           spot.lasttime = tweet[tweet.length-1].created_at;
           spot_info.push(spot);
           console.log("true");
-          console.log(i);
+          console.log(spot.name);
           if(i==spot_list.length-1){
             console.log("searchのresolveに入りました");
             resolve(spot_info);

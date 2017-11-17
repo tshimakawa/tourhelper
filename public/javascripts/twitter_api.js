@@ -13,7 +13,7 @@ exports.twitter_api = function(spot_list){
   return new Promise(function(resolve,reject){
     const count = 0;
     console.log("accessed twitter_api.js");
-    for(const i=0;i<spot_list.length;i++){
+    for(let i=0;i<spot_list.length;i++){
       search(spot_list[i]).then(
       function(result){
         count += 1;

@@ -59,11 +59,12 @@ function search(spot_list){
         spot.longitude = spot_list.longitude;
         spot.count = tweet.length;
         spot.lasttime = tweet[tweet.length-1].created_at;
-        console.log("true");
         console.log(spot.name);
+        console.log("true");
         console.log("searchのresolveに入りました");
         resolve(spot);
       }else {
+        console.log(spot.name);
         console.log("false");
         resolve(false);
       }

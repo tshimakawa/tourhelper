@@ -28,8 +28,8 @@ function search(spot_list){
     const spot_info = [];
     for(let i=0;i<1;i++){
       var options = {};
-      console.log(spot_list[2].name);
-      options.q = spot_list[2].name;
+      console.log(spot_list[0].name);
+      options.q = spot_list[0].name;
       options.count = 100;
       client.get('search/tweets', options, function(error, tweets, response){
         if (error) {

@@ -73,15 +73,16 @@ function search(spot_list){
 }
 
 function makeRanking(spot_info){
+  console.log("makeRankingに入りました");
   for (let j = 0; j < spot_info.length-1; j++){
     for (let k = j; k < spot_info.length; k++) {
       if(spot_info[k].count > spot_info[j].count){
-        const num = spot_info[j];
+        let num = spot_info[j];
         spot_info[j] = spot_info[k];
         spot_info[k] = num;
       }else if (spot_info[k].count == spot_info[j].count) {
         if(spot_info[k].lasttime > spot_info[j].lasttime ){
-          const num = spot_info[j];
+          let num = spot_info[j];
           spot_info[j] = spot_info[k];
           spot_info[k] = num;
         }

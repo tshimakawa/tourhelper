@@ -37,7 +37,7 @@ function search(spot_list){
         }
         console.log("----------------------------------------------------------");
         const tweet = tweets.statuses;
-        const spot =
+        const spot = {};
         if(tweet.length < 0){
           spot.name = spot_list[i].name;
           spot.latitude = spot_list[i].latitude;

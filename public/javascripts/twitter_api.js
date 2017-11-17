@@ -19,7 +19,7 @@ exports.twitter_api = function(spot_list){
       function(result){
         count += 1;
         console.log(count);
-        if(!result){
+        if(result){
           spot_info.push(result);
           console.log("spot_infoに追加したよ");
         }

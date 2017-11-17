@@ -12,14 +12,19 @@ const client = new twitter({
 exports.twitter_api = function(spot_list){
   return new Promise(function(resolve,reject){
     let count = 0;
+    const spot_info = [];
     console.log("accessed twitter_api.js");
     for(let i=0;i<spot_list.length;i++){
       search(spot_list[i]).then(
       function(result){
         count += 1;
         console.log(count);
+        if(!result){
+          spot_info.push(result);
+          console.log("spot_infoに追加したよ");
+        }
         if(count == spot_list.length){
-          resolve(result);
+          resolve(spot_info);
         }
       },function(error){
         reject(error);
@@ -32,38 +37,34 @@ exports.twitter_api = function(spot_list){
 //キーワードで検索
 function search(spot_list){
   return new Promise(function(resolve,reject){
-    const spot_info = [];
     // for(const i=0;i<spot_list.length;i++){
-      var options = {};
-      options.q = spot_list.name;
-      options.count = 100;
-      client.get('search/tweets', options, function(error, tweets, response){
-        if (error) {
-          console.log("searchのerrorに入りました");
-          reject(error); // errがあればrejectを呼び出す
-          return;
-        }
-        console.log("----------------------------------------------------------");
-        const tweet = tweets.statuses;
-        const spot = {};
-        if(tweet.length > 0){
-          spot.name = spot_list.name;
-          spot.latitude = spot_list.latitude;
-          spot.longitude = spot_list.longitude;
-          spot.count = tweet.length;
-          //console.log(tweet);
-          console.log("----------------------------------------------------------");
-          spot.lasttime = tweet[tweet.length-1].created_at;
-          spot_info.push(spot);
-          console.log("true");
-          console.log(spot.name);
-          console.log("searchのresolveに入りました");
-          resolve(spot_info);
-        }else {
-          console.log("false");
-        }
-        resolve(spot_info);
-      });
+    var options = {};
+    options.q = spot_list.name;
+    options.count = 100;
+    client.get('search/tweets', options, function(error, tweets, response){
+      if (error) {
+        console.log("searchのerrorに入りました");
+        reject(error); // errがあればrejectを呼び出す
+        return;
+      }
+      console.log("----------------------------------------------------------");
+      const tweet = tweets.statuses;
+      const spot = {};
+      if(tweet.length > 0){
+        spot.name = spot_list.name;
+        spot.latitude = spot_list.latitude;
+        spot.longitude = spot_list.longitude;
+        spot.count = tweet.length;
+        spot.lasttime = tweet[tweet.length-1].created_at;
+        console.log("true");
+        console.log(spot.name);
+        console.log("searchのresolveに入りました");
+        resolve(spot);
+      }else {
+        console.log("false");
+        resolve(false);
+      }
+    });
     // }
   });
 }

@@ -41,6 +41,11 @@ function search(spot_list){
         const tweet = tweets.statuses;
         const spot = {};
         console.log(tweet);
+        if(tweet!){
+          console.log("true");
+        }else {
+          console.log("false");
+        }
         spot.name = spot_list[i].name;
         spot.latitude = spot_list[i].latitude;
         spot.longitude = spot_list[i].longitude;

@@ -11,14 +11,21 @@ const client = new twitter({
 
 exports.twitter_api = function(spot_list){
   return new Promise(function(resolve,reject){
+    const count = 0;
     console.log("accessed twitter_api.js");
-    search(spot_list).then(
+    for(const i=0;i<spot_list.length;i++){
+      search(spot_list[i]).then(
       function(result){
-        console.log("twitter_api成功");
-        resolve(result);
+        count += 1;
+        console.log(count);
+        if(count == spot_list.length){
+          resolve(result);
+        }
       },function(error){
         reject(error);
+        return;
       });
+    }
   });
 }
 
@@ -26,9 +33,9 @@ exports.twitter_api = function(spot_list){
 function search(spot_list){
   return new Promise(function(resolve,reject){
     const spot_info = [];
-    for(let i=0;i<spot_list.length;i++){
+    // for(const i=0;i<spot_list.length;i++){
       var options = {};
-      options.q = spot_list[i].name;
+      options.q = spot_list.name;
       options.count = 100;
       client.get('search/tweets', options, function(error, tweets, response){
         if (error) {
@@ -40,9 +47,9 @@ function search(spot_list){
         const tweet = tweets.statuses;
         const spot = {};
         if(tweet.length > 0){
-          spot.name = spot_list[i].name;
-          spot.latitude = spot_list[i].latitude;
-          spot.longitude = spot_list[i].longitude;
+          spot.name = spot_list.name;
+          spot.latitude = spot_list.latitude;
+          spot.longitude = spot_list.longitude;
           spot.count = tweet.length;
           //console.log(tweet);
           console.log("----------------------------------------------------------");
@@ -50,14 +57,13 @@ function search(spot_list){
           spot_info.push(spot);
           console.log("true");
           console.log(spot.name);
-          if(i==spot_list.length-1){
-            console.log("searchのresolveに入りました");
-            resolve(spot_info);
-          }
+          console.log("searchのresolveに入りました");
+          resolve(spot_info);
         }else {
           console.log("false");
         }
+        resolve(spot_info);
       });
-    }
+    // }
   });
 }

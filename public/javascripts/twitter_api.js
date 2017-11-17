@@ -81,6 +81,7 @@ function makeRanking(spot_info){
         spot_info[k] = num;
       }else if (spot_info[k].count == spot_info[j].count) {
         if(spot_info[k].lasttime > spot_info[j].lasttime ){
+          const num = spot_info[j];
           spot_info[j] = spot_info[k];
           spot_info[k] = num;
         }

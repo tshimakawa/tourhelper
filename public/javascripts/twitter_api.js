@@ -64,7 +64,7 @@ function search(spot_list){
         console.log("searchのresolveに入りました");
         resolve(spot);
       }else {
-        console.log(spot.name);
+        console.log(spot_list.name);
         console.log("false");
         resolve(false);
       }
@@ -73,7 +73,8 @@ function search(spot_list){
   });
 }
 
-function makeRanking(spot_info){
+function makeRanking(spotinfo){
+  let spot_info = spotinfo;
   console.log("makeRankingに入りました");
   for (let j = 0; j < spot_info.length-1; j++){
     for (let k = j; k < spot_info.length; k++) {

@@ -26,9 +26,9 @@ exports.twitter_api = function(spot_list){
 function search(spot_list){
   return new Promise(function(resolve,reject){
     const spot_info = [];
-    for(let i=0;i<1;i++){
+    for(let i=0;i<spot_list.length;i++){
       var options = {};
-      options.q = spot_list[1].name;
+      options.q = spot_list[i].name;
       options.count = 100;
       client.get('search/tweets', options, function(error, tweets, response){
         if (error) {
@@ -38,8 +38,7 @@ function search(spot_list){
         console.log("----------------------------------------------------------");
         const tweet = tweets.statuses;
         const spot =
-        console.log(tweet);
-        if(!tweet){
+        if(tweet.length < 0){
           spot.name = spot_list[i].name;
           spot.latitude = spot_list[i].latitude;
           spot.longitude = spot_list[i].longitude;

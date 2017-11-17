@@ -25,6 +25,7 @@ exports.twitter_api = function(spot_list){
         }
         if(count == spot_list.length){
           console.log("twitter_apiのresolveに入りました");
+          spot_info = makeRanking(spot_info);
           resolve(spot_info);
         }
       },function(error){
@@ -69,4 +70,22 @@ function search(spot_list){
     });
     // }
   });
+}
+
+function makeRanking(spot_info){
+  for (let j = 0; j < spot_info.length-1; j++){
+    for (let k = j; k < spot_info.length; k++) {
+      if(spot_info[k].count > spot_info[j].count){
+        const num = spot_info[j];
+        spot_info[j] = spot_info[k];
+        spot_info[k] = num;
+      }else if (spot_info[k].count == spot_info[j].count) {
+        if(spot_info[k].lasttime > spot_info[j].lasttime ){
+          spot_info[j] = spot_info[k];
+          spot_info[k] = num;
+        }
+      }
+    }
+  }
+  return spot_info;
 }

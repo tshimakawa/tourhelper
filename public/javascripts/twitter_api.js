@@ -78,14 +78,22 @@ function makeRanking(spotinfo){
   console.log("makeRankingに入りました");
   for (let j = 0; j < spot_info.length-1; j++){
     for (let k = j; k < spot_info.length; k++) {
+      console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaa");
       if(spot_info[k].count > spot_info[j].count){
+        console.log("bbbbbbbbbbbbbbbbbbbbbbbbbbb");
         let num = spot_info[j];
+        console.log("cccccccc");
         spot_info[j] = spot_info[k];
+        console.log("dddddddd");
         spot_info[k] = num;
       }else if (spot_info[k].count == spot_info[j].count) {
+        console.log("eeeeee");
         if(spot_info[k].lasttime > spot_info[j].lasttime ){
+          console.log("fffffff");
           let num = spot_info[j];
+          console.log("ggggggggg");
           spot_info[j] = spot_info[k];
+          console.log("hhhhhhhhh");
           spot_info[k] = num;
         }
       }

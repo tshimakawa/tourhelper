@@ -40,7 +40,6 @@ function search(spot_list){
         console.log("----------------------------------------------------------");
         const tweet = tweets.statuses;
         const spot = {};
-        console.log(tweet);
         if(!tweet){
           spot.name = spot_list[i].name;
           spot.latitude = spot_list[i].latitude;

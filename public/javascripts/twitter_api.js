@@ -15,6 +15,7 @@ exports.twitter_api = function(spot_list){
     console.log(spot_list[1]);
     search(spot_list).then(
       function(result){
+        console.log("twitter_api成功");
         resolve(result);
       },function(error){
         reject(error);
@@ -47,10 +48,10 @@ function search(spot_list){
           spot.count = tweet.length;
           //console.log(tweet);
           console.log("----------------------------------------------------------");
-          console.log(tweet[tweet.length-1]);
           spot.lasttime = tweet[tweet.length-1].created_at;
           spot_info.push(spot);
           if(i==spot_list.length-1){
+
             resolve(spot_info);
           }
         }else {

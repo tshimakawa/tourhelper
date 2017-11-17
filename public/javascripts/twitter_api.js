@@ -12,7 +12,6 @@ const client = new twitter({
 exports.twitter_api = function(spot_list){
   return new Promise(function(resolve,reject){
     console.log("accessed twitter_api.js");
-    console.log(spot_list[1]);
     search(spot_list).then(
       function(result){
         console.log("twitter_api成功");
@@ -27,16 +26,15 @@ exports.twitter_api = function(spot_list){
 function search(spot_list){
   return new Promise(function(resolve,reject){
     const spot_info = [];
-    for(let i=0;i<spot_list.length;i++){
+    for(let i=0;i<1;i++){
       var options = {};
-      options.q = spot_list[i].name;
+      options.q = spot_list[1].name;
       options.count = 100;
       client.get('search/tweets', options, function(error, tweets, response){
         if (error) {
           reject(error); // errがあればrejectを呼び出す
           return;
         }
-        //console.log(tweets);
         console.log("----------------------------------------------------------");
         const tweet = tweets.statuses;
         const spot = {};
@@ -49,8 +47,8 @@ function search(spot_list){
           console.log("----------------------------------------------------------");
           spot.lasttime = tweet[tweet.length-1].created_at;
           spot_info.push(spot);
+          console.log("true");
           if(i==spot_list.length-1){
-
             resolve(spot_info);
           }
         }else {

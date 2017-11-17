@@ -41,7 +41,7 @@ function search(spot_list){
         const tweet = tweets.statuses;
         const spot = {};
         console.log(tweet);
-        if(tweet!){
+        if(!tweet){
           console.log("true");
         }else {
           console.log("false");

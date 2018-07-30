@@ -32,9 +32,9 @@ app.use('/users', users);
 
 //HTTPS通信で使用するためのSSLキーを設定
 const ssloptions = {
-        key: fs.readFileSync ('/home/tshimakawa/sslKey/privkey.pem'),
-        cert: fs.readFileSync('/home/tshimakawa/sslKey/cert.pem'),
-        ca: [fs.readFileSync('/home/tshimakawa/sslKey/chain.pem'), fs.readFileSync('/home/tshimakawa/sslKey/fullchain.pem','utf-8')],
+        key: fs.readFileSync ('/etc/letsencrypt/live/tshimakawa.dip.jp/privkey.pem'),
+        cert: fs.readFileSync('/etc/letsencrypt/live/tshimakawa.dip.jp/cert.pem'),
+        ca: [fs.readFileSync('/etc/letsencrypt/live/tshimakawa.dip.jp/chain.pem'), fs.readFileSync('/etc/letsencrypt/live/tshimakawa.dip.jp/fullchain.pem','utf-8')],
 requestCert: true,
 rejectUnauthorized: false
 };
@@ -72,7 +72,7 @@ app.use(function(err, req, res, next) {
 });
 
 // ポート設定
-app.set('httpsport', process.env.PORT || 44501);
+app.set('httpsport', process.env.PORT || 50000);
 
 // サーバ立ち上げ
 var server = https.createServer(ssloptions,app).listen(app.get('httpsport'), function(){

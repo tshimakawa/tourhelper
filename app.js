@@ -39,14 +39,14 @@ requestCert: true,
 rejectUnauthorized: false
 };
 
-mongoose.Promise = global.Promise;
-const mongodbUri = 'mongodb://localhost/household_account';
-const mongOptions = {
-    useMongoClient: true,
-    socketTimeoutMS: 0,
-    keepAlive: true,
-    reconnectTries: 30
-};
+// mongoose.Promise = global.Promise;
+// const mongodbUri = 'mongodb://localhost/household_account';
+// const mongOptions = {
+//     useMongoClient: true,
+//     socketTimeoutMS: 0,
+//     keepAlive: true,
+//     reconnectTries: 30
+// };
 
 //ルーティングの設定 各エンドポイントに対応したルーティング先に誘導
 app.use('/', index);
